@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:background="#e2c7ac"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="JOGO DA FORCA"
+            android:textStyle="bold"
+            android:textSize="30sp"
+            android:textColor="@color/red"
+            android:layout_marginBottom="30dp"/>
+
+        <ImageView
+            android:layout_width="315dp"
+            android:layout_height="160dp"
+            android:src="@drawable/jogoforca"
+            android:id="@+id/jogoForca"
+            android:layout_marginBottom="30dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="O JOGO MAIS DIVERTIDO DO MUNDO!"
+            android:textStyle="bold"
+            android:textSize="17sp"
+            android:textColor="@color/red"
+            android:layout_marginBottom="15dp"/>
+
+        <Button
+            android:layout_width="150dp"
+            android:layout_height="45dp"
+            android:text="INICIAR"
+            android:textStyle="bold"
+            android:textSize="17sp"
+            android:textColor="@color/white"
+            android:background="@color/blue"
+            android:onClick="iniciarJogo"
+
+            />
+
+
+    </LinearLayout>
+
+</LinearLayout>
