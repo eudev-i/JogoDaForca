@@ -157,7 +157,12 @@ public class MainActivity extends Activity{
         public void onClick(View v) {
 
             int identicadorBtn = (int) v.getTag();
-            /*int letraClicada = 0;*/
+            int contador = 0;
+
+            Button btnClicado = (Button) v;
+
+            int pontuacaoAcerto = 0;
+            int pontuacaoErro = 0;
 
             CharSequence letraBtn = btnAlfabeto[identicadorBtn].getText();/*RESGATANDO O TEXTO DO BOTAO*/
 
@@ -172,15 +177,21 @@ public class MainActivity extends Activity{
                     txtLetra[i].setText(letraBtn);
 
                     v.setEnabled(false);
+
+                    contador++; /*A PALAVRA EXISTE PELO MENOS UMA VEZ*/
                 }
             }
 
 
-            /*MUDA A COR*/
-            /*if(){
-
-            }*/
-
+            if(contador != 0){
+                btnClicado.setBackgroundColor(getResources().getColor(R.color.green)); /*MUDA A COR PARA VERDE SE A PALAVRA EXISTIR*/
+                pontuacaoAcerto++;
+            }
+            else {
+                btnClicado.setBackgroundColor(getResources().getColor(R.color.red)); /*MUDA A COR PARA VERMELHO SE A PALAVRA NÃO EXISTIR*/
+                pontuacaoErro++;
+            }
+            btnClicado.setEnabled(false);/*DESABILITA O BOTÃO*/
         }
     };
 

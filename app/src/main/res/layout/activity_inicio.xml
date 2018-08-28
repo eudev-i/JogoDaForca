@@ -19,23 +19,14 @@
             android:textStyle="bold"
             android:textSize="30sp"
             android:textColor="@color/red"
-            android:layout_marginBottom="30dp"/>
+            android:layout_marginBottom="37dp"/>
 
         <ImageView
-            android:layout_width="315dp"
-            android:layout_height="160dp"
+            android:layout_width="325dp"
+            android:layout_height="200dp"
             android:src="@drawable/jogoforca"
             android:id="@+id/jogoForca"
-            android:layout_marginBottom="30dp"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="O JOGO MAIS DIVERTIDO DO MUNDO!"
-            android:textStyle="bold"
-            android:textSize="17sp"
-            android:textColor="@color/red"
-            android:layout_marginBottom="15dp"/>
+            android:layout_marginBottom="37dp"/>
 
         <Button
             android:layout_width="150dp"
