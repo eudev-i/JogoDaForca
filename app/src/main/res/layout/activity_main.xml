@@ -12,11 +12,10 @@
         android:padding="16dp">
 
         <ImageView
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
             android:src="@drawable/dicas"
-            android:layout_marginBottom="15px"
-            android:layout_marginLeft="280dp"/>
+            android:layout_marginLeft="310dp"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -32,6 +31,7 @@
             android:layout_height="60dp"
             android:gravity="center"
             android:orientation="horizontal"
+            android:layout_marginTop="100dp"
             android:layout_marginBottom="30dp">
 
             <TextView

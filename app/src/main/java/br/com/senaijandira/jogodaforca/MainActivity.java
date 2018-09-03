@@ -1,11 +1,15 @@
 package br.com.senaijandira.jogodaforca;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.Random;
 
@@ -15,7 +19,8 @@ public class MainActivity extends Activity{
     TextView txtDica;
     Button btnAlfabeto[] = new Button[26];
     int palavraAleatoria;
-
+    int contadorAcertos;
+    int contadorErros;
 
     /*PALAVRAS*/
     String[][] palavras = {
@@ -125,6 +130,14 @@ public class MainActivity extends Activity{
             "O incrível ...?"
     };
 
+    private void alert(String titulo, String mensagem){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle(titulo);
+        builder.setMessage(mensagem);
+        builder.create();
+        builder.show();
+    }
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -150,6 +163,8 @@ public class MainActivity extends Activity{
             btnAlfabeto[auxiliar].setBackgroundColor(getResources().getColor(R.color.blue));/*INICIANDO OS BOTOES COM A COR AZUL*/
         }
     }
+    int pontuacaoAcerto = 0;
+    int pontuacaoErro = 3;
 
     /*VERIFICA QUAL BOTAO FOI CLICADO*/
     View.OnClickListener clique = new View.OnClickListener() {
@@ -159,10 +174,10 @@ public class MainActivity extends Activity{
             int identicadorBtn = (int) v.getTag();
             int contador = 0;
 
-            Button btnClicado = (Button) v;
 
-            int pontuacaoAcerto = 0;
-            int pontuacaoErro = 0;
+
+
+            Button btnClicado = (Button) v;
 
             CharSequence letraBtn = btnAlfabeto[identicadorBtn].getText();/*RESGATANDO O TEXTO DO BOTAO*/
 
@@ -186,12 +201,23 @@ public class MainActivity extends Activity{
             if(contador != 0){
                 btnClicado.setBackgroundColor(getResources().getColor(R.color.green)); /*MUDA A COR PARA VERDE SE A PALAVRA EXISTIR*/
                 pontuacaoAcerto++;
+
             }
             else {
                 btnClicado.setBackgroundColor(getResources().getColor(R.color.red)); /*MUDA A COR PARA VERMELHO SE A PALAVRA NÃO EXISTIR*/
-                pontuacaoErro++;
+
+                pontuacaoErro--;
             }
             btnClicado.setEnabled(false);/*DESABILITA O BOTÃO*/
+
+
+
+
+
+            if(pontuacaoAcerto == 4){
+
+                JanelaFimJogo();
+            }
         }
     };
 
@@ -206,6 +232,11 @@ public class MainActivity extends Activity{
         return gerador.nextInt(50);/*RETORNA O NUMERO ALEATORIO DE 0 A 50*/
     }
 
-
+    public void JanelaFimJogo(){
+        /*ABRIR UMA NOVA TELA*/
+        /*Intent intent = new Intent (this, MainActivity.class);*/
+        Intent janelaFinal = new Intent(this, FimActivity.class);
+        startActivity(janelaFinal);
+    }
 
 }
