@@ -12,26 +12,16 @@ import android.widget.Toast;
 
 public class InicioActivity extends Activity{
 
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        /*DEFINE O CONTEUDO DA TELA*/
-        setContentView(R.layout.activity_inicio);
-
-
-
+        setContentView(R.layout.activity_inicio);/*DEFINE O CONTEUDO DA TELA*/
     }
 
-    /*@Override
-    protected void onResume() {
-        super.onResume();
-    }*/
-
     public void iniciarJogo(View v){
-        /*ABRIR UMA NOVA TELA*/
-        Intent intent = new Intent (this, MainActivity.class);
+
+        Intent intent = new Intent (this, MainActivity.class);/*ABRIR UMA NOVA TELA*/
         startActivity(intent);
 
     }

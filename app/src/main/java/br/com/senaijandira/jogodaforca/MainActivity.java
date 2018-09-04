@@ -19,23 +19,21 @@ public class MainActivity extends Activity{
     TextView txtDica;
     Button btnAlfabeto[] = new Button[26];
     int palavraAleatoria;
-    int contadorAcertos;
-    int contadorErros;
 
-    /*PALAVRAS*/
+    /*PALAVRAS QUE SERÃO SORTEADAS NO JOGO*/
     String[][] palavras = {
-            {"O", "S", "S", "O"},
-            {"C", "A", "S", "A"},
-            {"B", "O", "L", "A"},
-            {"M", "O", "T", "O"},
-            {"D", "O", "C", "E"},
             {"A", "M", "O", "R"},
+            {"F", "A", "T", "O"},
+            {"B", "O", "L", "A"},
+            {"M", "I", "T", "O"},
+            {"D", "O", "C", "E"},
+            {"A", "L", "E", "M"},
             {"T", "R", "E", "M"},
-            {"A", "G", "U", "A"},
-            {"B", "O", "L", "O"},
+            {"R", "U", "I", "M"},
+            {"C", "E", "D", "O"},
             {"P", "E", "S", "O"},
             {"S", "H", "O", "W"},
-            {"L", "E", "A", "L"},
+            {"C", "O", "T", "A"},
             {"R", "A", "I", "Z"},
             {"T", "A", "B", "U"},
             {"I", "L", "H", "A"},
@@ -43,33 +41,33 @@ public class MainActivity extends Activity{
             {"V", "O", "A", "R"},
             {"F", "O", "G", "E"},
             {"V", "I", "D", "A"},
-            {"S", "A", "I", "A"},
+            {"S", "E", "L", "A"},
             {"L", "I", "X", "O"},
-            {"F", "A", "M", "A"},
-            {"V", "O", "T", "O"},
+            {"C", "E", "L", "A"},
+            {"P", "O", "S", "E"},
             {"C", "A", "B", "O"},
             {"C", "O", "V", "A"},
             {"L", "U", "V", "A"},
             {"M", "O", "D", "A"},
             {"C", "R", "U", "Z"},
-            {"A", "M", "E", "M"},
-            {"M", "O", "F", "O"},
-            {"L", "U", "L", "A"},
+            {"F", "A", "S", "E"},
+            {"F", "A", "C", "E"},
+            {"A", "G", "I", "R"},
             {"S", "U", "C", "O"},
-            {"C", "A", "M", "A"},
+            {"R", "U", "D", "E"},
             {"F", "E", "T", "O"},
             {"M", "I", "A", "U"},
-            {"L", "A", "T", "A"},
+            {"I", "D", "E", "M"},
             {"L", "U", "A", "R"},
             {"R", "I", "S", "O"},
-            {"A", "N", "T", "A"},
+            {"B", "A", "S", "E"},
             {"R", "I", "M", "A"},
-            {"F", "A", "D", "A"},
+            {"V", "A", "L", "E"},
             {"M", "A", "N", "U"},
-            {"J", "A", "V", "A"},
+            {"A", "S", "N", "O"},
             {"H", "T", "M", "L"},
-            {"A", "L", "M", "A"},
-            {"O", "L", "H", "O"},
+            {"T", "I", "P", "O"},
+            {"H", "O", "J", "E"},
             {"M", "E", "I", "A"},
             {"Y", "O", "R", "K"},
             {"C", "O", "N", "E"},
@@ -78,18 +76,18 @@ public class MainActivity extends Activity{
 
     /*DICAS*/
     String[] dicas = {
-            "Tecido rígido que forma o esqueleto da maioria dos animais vertebrados",
-            "Moradia de formatos e tamanhos variados",
-            "Objeto com formato mais ou menos esférico ou arredondado",
-            "Veículo de duas rodas",
-            "De sabor açucarado",
             "Sentimento inexistente",
+            "Algo cuja existência pode ser constatada de modo indiscutível",
+            "Objeto com formato mais ou menos esférico ou arredondado",
+            "Lenda",
+            "De sabor açucarado",
+            "Mais à frente ou?",
             "Meio de transporte formado por uma série de vagões",
-            "Líquido inodoro, insípido e incolor ",
-            "Alimento à base de massa de farinha, geralmente doce e cozido no forno",
+            "Destituído de préstimo",
+            "Antes do tempo ou da ocasião própria",
             "Força invisível que atrai os corpos para a superfície da Terra",
             "Espetáculo apresentado em teatro, televisão, rádio, casas noturnas ou mesmo ao ar livre",
-            "Aquele que denota responsabilidade para com os compromissos assumidos, é?",
+            "Quantia, parcela determinada de um todo",
             "Eixo de uma planta vascular",
             "Proibição da prática de qualquer atividade social que seja moral, religiosa ou culturalmente reprovável",
             "Extensão de terra firme cercada de modo durável por água doce ou salgada em toda a sua periferia",
@@ -97,53 +95,44 @@ public class MainActivity extends Activity{
             "Deslocar-se pelo ar",
             "Escapar do lugar em que se estava preso",
             "Existência evolui do nascimento até a morte",
-            "Uma das divisões de uma casa",
+            "Peça de couro posta sobre o lombo da cavalgadura",
             "Tudo aquilo que já não tem utilidade e é jogado fora",
-            "Reputação",
-            "Manifestação oficial que declara a preferência do eleitor em um processo eleitoral",
+            "Diminuto quarto de dormir",
+            "Ato ou efeito de se apossar de alguma coisa",
             "Apresenta vários condutores isolados uns dos outros, e que é protegido(a) por algum tipo de revestimento",
             "Sepultura",
             "Peça de vestuário para a mão",
             "Maneira ou costume mais predominante em um determinado grupo em um determinado momento que se refere a forma de vestir-se",
             "Comum nas igrejas e cemitérios",
-            "Utilizado para afirmar ou aderir a alguma coisa",
-            "Também chamados de bolores",
-            "É atribuída à divisão dos pés, que formaram os braços e tentáculos",
+            "Cada um dos estados de algo em evolução",
+            "Cada uma das partes laterais dessa região",
+            "Tomar providências",
             "Refresco ou bebida de fruta ou de vegetal",
-            "Item do mobiliário geralmente encontrado no quarto de uma residência",
+            "Que apresenta asperezas; áspero, rugoso",
             "Estágio intrauterino após o embrião",
             "Som que o gato emite",
-            "A lata é qualquer recipiente de metal para acondicionamento de alimentos ou bebidas",
+            "O mesmo",
             "Claridade proveniente da reflexão da luz sola pela Lua",
             "Expressão facial decorrente da contração dos músculos das extremidades da boca",
-            "Animail originário da América e um dos maiores da fauna brasileira",
+            "Parte inferior de alguma coisa",
             "Repetição de uma sequência de sons parecidos",
-            "Ser mitológico, característico dos mitos célticos e germânicos",
+            "Documento com um valor monetário determinado",
             "Aluna da INF3M que ama JAVA",
-            "Linguagem de programação que começou a ser criada em 1991",
+            "Indivíduo desprovido de inteligência",
             "linguagem de marcação de hipertexto",
-            "A palavra latina anima significa também “vida”, “espírito”, “sede do pensamento”",
-            "Formado por vários meios transparentes além de um sistema fisiológico com inúmeros componentes",
+            "Espécie, gênero",
+            "O dia em que se está",
             "Peça de roupa que cobre o pé",
             "Nova ...?",
             "Possui uma base circular formada por segmentos de reta que têm uma extremidade num vértice em comum",
             "O incrível ...?"
     };
 
-    private void alert(String titulo, String mensagem){
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle(titulo);
-        builder.setMessage(mensagem);
-        builder.create();
-        builder.show();
-    }
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        /*DEFINE O CONTEUDO DA TELA*/
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main);/*DEFINE O CONTEUDO DA TELA*/
 
         criarBtnAlfabeto();
         palavraAleatoria = aleatorio();
@@ -163,19 +152,18 @@ public class MainActivity extends Activity{
             btnAlfabeto[auxiliar].setBackgroundColor(getResources().getColor(R.color.blue));/*INICIANDO OS BOTOES COM A COR AZUL*/
         }
     }
-    int pontuacaoAcerto = 0;
-    int pontuacaoErro = 3;
 
-    /*VERIFICA QUAL BOTAO FOI CLICADO*/
-    View.OnClickListener clique = new View.OnClickListener() {
+    int pontuacaoAcerto = 0;
+    int pontuacaoErro = 4;
+    int letraErrada = 0;
+    int venceu = 0;
+
+    View.OnClickListener clique = new View.OnClickListener() { /*VERIFICA QUAL BOTAO FOI CLICADO*/
         @Override
         public void onClick(View v) {
 
             int identicadorBtn = (int) v.getTag();
             int contador = 0;
-
-
-
 
             Button btnClicado = (Button) v;
 
@@ -197,7 +185,6 @@ public class MainActivity extends Activity{
                 }
             }
 
-
             if(contador != 0){
                 btnClicado.setBackgroundColor(getResources().getColor(R.color.green)); /*MUDA A COR PARA VERDE SE A PALAVRA EXISTIR*/
                 pontuacaoAcerto++;
@@ -205,25 +192,23 @@ public class MainActivity extends Activity{
             }
             else {
                 btnClicado.setBackgroundColor(getResources().getColor(R.color.red)); /*MUDA A COR PARA VERMELHO SE A PALAVRA NÃO EXISTIR*/
-
                 pontuacaoErro--;
+                letraErrada++;
+                if(pontuacaoErro == 0){
+                    JanelaFimJogo();
+                }
             }
             btnClicado.setEnabled(false);/*DESABILITA O BOTÃO*/
-
-
 
 
 
             if(pontuacaoAcerto == 4){
 
                 JanelaFimJogo();
+                venceu = 1;
             }
         }
     };
-
-
-
-
 
     public int aleatorio(){
 
@@ -233,10 +218,19 @@ public class MainActivity extends Activity{
     }
 
     public void JanelaFimJogo(){
-        /*ABRIR UMA NOVA TELA*/
-        /*Intent intent = new Intent (this, MainActivity.class);*/
-        Intent janelaFinal = new Intent(this, FimActivity.class);
+
+        Intent janelaFinal = new Intent(this, FimActivity.class);/*ABRIR UMA NOVA TELA*/
+
+        janelaFinal.putExtra("pontuacaoAcerto", pontuacaoAcerto);
         startActivity(janelaFinal);
+        janelaFinal.putExtra("letraErrada", letraErrada);
+        startActivity(janelaFinal);
+
+       Bundle bundleFimDeJogo = new Bundle();
+       bundleFimDeJogo.putInt("verificarConquista", pontuacaoErro);
+       janelaFinal.putExtras(bundleFimDeJogo);
+       startActivity(janelaFinal);
+
     }
 
 }
