@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -194,6 +195,25 @@ public class MainActivity extends Activity{
                 btnClicado.setBackgroundColor(getResources().getColor(R.color.red)); /*MUDA A COR PARA VERMELHO SE A PALAVRA NÃO EXISTIR*/
                 pontuacaoErro--;
                 letraErrada++;
+
+                ImageView imgForca;
+                imgForca = findViewById(R.id.imgForca);
+                if(pontuacaoErro == 3){
+                    imgForca.setImageResource(R.drawable.boneco2);
+                }
+                else if(pontuacaoErro == 2){
+                    imgForca.setImageResource(R.drawable.boneco3);
+                }
+                else if(pontuacaoErro == 1){
+                    imgForca.setImageResource(R.drawable.boneco4);
+                }
+                else if(pontuacaoErro == 0){
+                    imgForca.setImageResource(R.drawable.boneco5);
+                }
+
+
+
+
                 if(pontuacaoErro == 0){
                     JanelaFimJogo();
                 }

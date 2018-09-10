@@ -12,6 +12,9 @@ import android.widget.Toast;
 
 public class InicioActivity extends Activity{
 
+
+    ImageView jogoForca;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,5 +27,10 @@ public class InicioActivity extends Activity{
         Intent intent = new Intent (this, MainActivity.class);/*ABRIR UMA NOVA TELA*/
         startActivity(intent);
 
+    }
+    public void easteregg(View view){
+        jogoForca = findViewById(R.id.jogoForca);
+
+        jogoForca.setImageResource(R.drawable.meme);
     }
 }

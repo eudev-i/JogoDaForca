@@ -12,26 +12,29 @@
         android:padding="16dp">
 
         <ImageView
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:src="@drawable/dicas"
-            android:layout_marginLeft="310dp"/>
+            android:layout_width="150dp"
+            android:layout_height="200dp"
+            android:src="@drawable/boneco1"
+            android:layout_gravity="center"
+            android:id="@+id/imgForca"/>
+
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text=""
+            android:text="Maneira ou costume mais predominante em um determinado grupo em um determinado momento que se refere a forma de vestir-se"
             android:textSize="20sp"
             android:textColor="@color/red"
-            android:layout_marginBottom="80dp"
+            android:layout_marginBottom="20dp"
             android:id="@+id/txtDica"/>
+
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:gravity="center"
             android:orientation="horizontal"
-            android:layout_marginTop="100dp"
+            android:layout_marginTop="10dp"
             android:layout_marginBottom="30dp">
 
             <TextView
